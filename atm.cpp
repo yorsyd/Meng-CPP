@@ -41,7 +41,7 @@ int main(){
 			cout << "-";
 		}
 		
-		cout << "\nLanjut Transaksi? (y/n): "; cin >> lnjt;
+		cout << endl << "Lanjut Transaksi? (y/n): "; cin >> lnjt;
 		
 		if (lnjt == 'n' || lnjt == 'N'){
 			break;
