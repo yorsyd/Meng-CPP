@@ -79,5 +79,5 @@ int main(){
 			cout << "\nProgram selesai!";
 			break;
 		}
-}
+	}
 }
