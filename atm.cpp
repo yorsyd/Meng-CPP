@@ -4,7 +4,7 @@ using namespace std;
 int main(){
 	int saldo,kurang;
 	char pilih,lnjt;
-	cout << "Berapa saldo anda? "; cin >> saldo;
+	cout << "Masukkan jumlah saldo anda: "; cin >> saldo;
 	
 	while(true){
 		cout << endl << "PILIHAN MENU" << endl;
