@@ -1,4 +1,4 @@
-# gabutcpp
+# Meng-CPP
 [BAHASA INDONESIA]
 Kode-kode disini merupakan kode yang saya buat karena saya gabut. Kode-kode ini bertujuan untuk meng-improve kemampuan saya
 dan agar pengetahuan yang ada saya bisa diterapkan. Silahkan jika kalian ingin menggunakan kode yang ada disini (Tapi siapa juga yang mau? hehe)
