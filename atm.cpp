@@ -4,14 +4,16 @@ using namespace std;
 int main(){
 	int saldo,kurang;
 	char pilih,lnjt;
-	cout << "Masukkan jumlah saldo anda: "; cin >> saldo;
+	cout << "Masukkan jumlah saldo anda: ";
+	cin >> saldo;
 	
 	while(true){
 		cout << endl << "PILIHAN MENU" << endl;
 		cout << "1. Transfer" << endl;
 		cout << "2. Tarik uang" << endl;
 		cout << "3. Periksa Saldo" << endl;
-		cout << "Pilih 1/2/3: "; cin >> pilih;
+		cout << "Pilih 1/2/3: ";
+		cin >> pilih;
 		
 		switch(pilih){
 			case '1':
@@ -41,7 +43,8 @@ int main(){
 			cout << "-";
 		}
 		
-		cout << endl << "Lanjut Transaksi? (y/n): "; cin >> lnjt;
+		cout << endl << "Lanjut Transaksi? (y/n): ";
+		cin >> lnjt;
 		
 		if (lnjt == 'n' || lnjt == 'N'){
 			break;
