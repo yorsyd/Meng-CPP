@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-// Langkah Praktikum No.7
+// Langkah Praktikum No.7 
 	int i,j,n;
 	cout << "Jumlah baris: "; cin >> n;
 	for(i=0;i<=n;i++){
