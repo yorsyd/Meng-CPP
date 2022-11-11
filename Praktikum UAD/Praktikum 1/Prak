@@ -1,0 +1,12 @@
+/* Nama : isikan nama di sini */
+/* NIM : isikan nim di sini */
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+    cout<<”Hello World!!” <<endl;
+    return 0;
+}
+
+//Ini akan menghasilkan output: Hello World
