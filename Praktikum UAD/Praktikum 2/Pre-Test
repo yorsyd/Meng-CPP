@@ -1,0 +1,8 @@
+Nomor 1
+Library atau File Header apakah yang di gunakan untuk menuliskan perintah input dan output pada program C++ adalah iostream
+
+Nomor 2
+Perintah menampilkan data: cout
+Format penulisan: cout << data_output;
+Perintah menerima data: cin
+Format penulisan: cin >> data_input;
