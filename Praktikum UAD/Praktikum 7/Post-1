@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	int n=6;
+	for(int i=1;i<=n;i++){
+		for(int a=n-i;a>0;a--){
+			cout << " ";
+		}
+		for(int b=n-i+1;b<=n;b++){
+			cout << b;
+		}
+	cout << endl;
+	}
+}
