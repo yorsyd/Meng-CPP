@@ -1,0 +1,16 @@
+Nomor 1
+Software yang bisa digunakan untuk membuat striktur pemrograman C/C++ antara lain Dev C++, Codeblocks, Visual Studio Code, Sublim text, Atom dan masih banyak lagi.
+
+Nomor 2
+Bagian a
+#include<library>       -> Header/Deklarasi Library
+
+int main(){             -> Main function
+  statement;            -> pernyataan
+}
+
+Bagian b
+Dengan meng-klik tombol Compile di Toolbar atau juga bisa dengan menekan tombol F9
+
+Bagian c
+Dengan meng-klik tombol Run di Toolbar atau juga bisa dengan menekan tombol F10
