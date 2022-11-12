@@ -1,0 +1,14 @@
+// Langkah No.7 || Pada program ini hanya bisa input satu kata
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	char name[50];
+
+	cout << "Silahkan masukkan nama anda : ";
+	cin >> name;
+	cout << "Namamu adalah : " << name;
+		
+	return 0;
+}
