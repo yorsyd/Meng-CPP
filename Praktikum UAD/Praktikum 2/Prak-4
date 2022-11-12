@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	char name[50];
+	char name[50]; // char disini juga bisa diganti dengan string, terus [50] dihapus saja
 
 	cout << "Silahkan masukkan nama anda : ";
 	cin >> name;
