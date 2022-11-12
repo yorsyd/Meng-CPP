@@ -1,0 +1,14 @@
+// Langkah No.8 || Pada program ini bisa input lebih dari satu kata
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	string name;
+
+	cout << "Silahkan masukkan nama anda : ";
+	getline(cin,name);
+	cout << "Namamu adalah : " << name;
+		
+	return 0;
+}
