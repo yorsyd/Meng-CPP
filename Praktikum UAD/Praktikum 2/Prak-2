@@ -1,0 +1,13 @@
+// Langkah No.4
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int x;
+	cout << "Masukkan sebuah angka antara 1-100 : ";
+	cin >> x;
+	cout << "Angka yang dimasukkan : " << x << endl;
+		
+	return 0;
+}
