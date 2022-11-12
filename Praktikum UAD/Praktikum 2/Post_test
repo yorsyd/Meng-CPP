@@ -1,0 +1,54 @@
+#include "iostream"
+using namespace std;
+
+int main()
+{
+	string name, tempat_lahir, kelamin, desa, kec, kab, pekerjaan, prov;
+	char goldar;
+	int tanggal,bulan,tahun;
+	
+	cout << "Masukkan Nama		: ";
+	getline (cin, name);
+	cout << "Masukkan Tempat Lahir	: ";
+	getline (cin,tempat_lahir);
+	cout << "Masukkan Tanggal Lahir	: ";
+	cin >> tanggal;
+	cout << "Masukkan Bulan Lahir	: ";
+	cin >> bulan;
+	cout << "Masukkan Tahun Lahir	: ";
+	cin >> tahun;
+	cout << "Masukkan Jenis Kelamin	: ";
+	cin.ignore();
+	getline (cin,kelamin);
+	cout << "Masukkan Desa		: ";
+	getline (cin, desa);
+	cout << "Masukkan Kecamatan	: ";
+	getline (cin, kec);
+	cout << "Masukkan Kabupaten	: ";
+	getline (cin, kab);
+	cout << "Masukkan Pekerjaan	: ";
+	getline (cin, pekerjaan);
+	cout << "Masukkan Provinsi	: ";
+	getline (cin, prov);
+	cout << "Masukkan Goldar		: ";
+	cin >> goldar;
+	
+	system("cls");
+	
+	cout << "------ SIM ------" << endl;
+	cout << "1. " << name << endl;
+	cout << "2. " << tempat_lahir << ", " << tanggal << "-" << bulan << "-"<< tahun << endl;		
+	cout << "3. " << goldar << " - " << kelamin << endl;
+	cout << "4. " << desa << endl << "   " << kec << endl << "   " << kab << endl;
+	cout << "5. " << pekerjaan << endl;
+	cout << "6. " << prov << endl;		
+}
+
+/*
+Penjelasan
+getline(cin,variabel): Untuk menginput string agar bisa lebih dari 1 kata dan dipisahkan dengan spasi
+cin.ignore(): Digunakan ketika pada baris atas pakai cin dan di bawahnya pakai getline() maka pakai ini untuk tidak error
+cin: perintah untuk input data
+cout: perintah untuk output data
+system("cls"): untuk menghapus output code yang diatas
+*/
