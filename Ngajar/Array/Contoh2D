@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	int a[2][3];	//Deklarasi Array 2 dimensi
+	
+	//Pengisian Array 2D dengan cara satu per satu
+	a [0][0] = 100;	//Mengisi nilai array a baris 0, kolom 0
+	a [0][1] = 200;	//Mengisi nilai array a baris 0, kolom 1
+	a [0][2] = 300;	//Mengisi nilai array a baris 0, kolom 2
+	a [1][0] = 10;	//Mengisi nilai array a baris 1, kolom 0
+	a [1][1] = 20;	//Mengisi nilai array a baris 1, kolom 1
+	a [1][2] = 30;	//Mengisi nilai array a baris 1, kolom 2
+	
+	//Pengisian Array 2D dengan cara bersamaan
+	int x[2][3] = { { 100,200,300 } , { 10,20,30 } };
+	
+	//Pengisian Array 2 dimensi dengan loop
+//	int loop[3][2];	//deklarasi array 2 dimensi
+//	for (int i = 0; i<3; i++){
+//		for (int j = 0; j<2; j++){
+//			cout << "Input loop[" << i << "][" << j << "] : ";
+//			cin >> loop[i][j];
+//		}
+//	}
+//	system("cls");
+	
+	//Pemanggilan Nilai pada Array 2D cara manual
+	cout << "Nilai a[0][0]: " << a[0][0] << endl;
+	cout << "Nilai a[1][0]: " << a[1][0] << endl;
+	cout << "Nilai a[0][2]: " << a[0][2] << endl << endl;
+	
+	//Pemanggilan Nilai pada Array 2D cara Loop
+//	for (int i = 0; i<3; i++){
+//		for (int j = 0; j<2; j++){
+//			cout << "Isi loop[" << i << "][" << j << "] : " << loop[i][j];
+//			cout << endl;
+//		}
+//	}
+	
+	//Penggantian Array 2D 
+//	int g[2][3] = { { 11,22,33 } , { 1,2,3 } };	//Deklarasi
+//	g[1][1] = 20;
+//	cout << g[1][1];
+}
