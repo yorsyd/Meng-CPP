@@ -13,17 +13,13 @@ int main(){
 	
 	//Proses Selection Sort
 	for (int i=0; i<5; i++){
-		int kiri = arr[i];
-		int a = i;
 		for(int j=i+1; j<5; j++){
-			if (kiri>arr[j]){
-				kiri = arr[j];
-				a = j;
+			if (arr[ i ] > arr[j]){
+				int tampung = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tampung;
 			}
 		}
-		int tampung = arr[i];
-		arr[i] = arr[a];
-		arr[a] = tampung;
 	}
 	
 	//Tampilin data sesudah urut
