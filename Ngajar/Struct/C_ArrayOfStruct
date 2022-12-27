@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+struct barang
+{
+	string nama, kode;
+	int harga;
+}; 
+
+barang mkn[2]; //deklarasi dengan objek diluar struct
+
+int main(){
+	mkn[0].nama = "Roti";
+	mkn[0].harga = 5000;
+	mkn[0].kode = "w1b0";
+	
+	mkn[1].nama = "Bread";
+	mkn[1].harga = 50000;
+	mkn[1].kode = "Mw3W4H";
+	
+	cout << "\t--- Data Makanan ---\n";
+	cout << "Nama Makanan: " << mkn[0].nama << endl;
+	cout << "Harga Makanan: " << mkn[0].harga << endl;
+	cout << "Kode Makanan: " << mkn[0].kode << endl;
+	
+	cout << "\nNama Makanan: " << mkn[1].nama << endl;
+	cout << "Harga Makanan: " << mkn[1].harga << endl;
+	cout << "Kode Makanan: " << mkn[1].kode << endl;
+	
+}
