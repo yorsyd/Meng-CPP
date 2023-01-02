@@ -1,0 +1,84 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+//Fungsi untuk menuliskan data mahasiswa
+void tulis(){
+	string nama; char nim[10];
+	ofstream tulis("file.txt",ios::app); //memakai fungsi oftream untuk menuliskan data
+	
+  //syntax untuk menginput data yang ingin ditulis
+	cin.ignore();
+	cout << "Nama: "; getline(cin,nama);
+	cout << "NIM : "; cin >> nim;
+	
+  //Data yang akan tertulis di file.txt
+	tulis << "\n-- Data Mahasiswa --\n";
+	tulis << "Nama: " << nama << endl;
+	tulis << "NIM : " << nim << endl;
+	
+	tulis.close();
+}
+
+void baca(){
+	string out;
+	ifstream baca("file.txt");
+	
+  //syntax mengoutput isi dari file.txt
+	while(getline(baca,out)){
+		cout << out << endl;
+	}
+	baca.close();
+}
+
+//Fungsi untuk menghitung jumlah data
+int total(){
+	string out;
+	ifstream baca("file.txt");
+	int a = 0;
+	
+	while(getline(baca,out)){
+		a++;
+	}
+	baca.close();
+	
+	return a/4;	
+}
+
+int main(){
+	int pil; //variabel untuk percabangan
+	
+	while(true){
+		cout << "1. Input Data" << endl;
+		cout << "2. Daftar Data" << endl;
+		cout << "3. Total Data" << endl;
+		cout << "4. Exit" << endl;
+		cout << "Pilih: "; cin >> pil;
+		
+    //Jika pil == 1 maka fungsi tulis() akan terpanggil
+		if (pil == 1){
+			tulis(); cout << endl;
+			system("pause");
+			system("cls");
+		}
+    
+    //Jika pil == 2 maka fungsi baca() akan terpanggil
+		else if(pil ==2){
+			baca(); cout << endl;
+			system("pause");
+			system("cls");
+		}
+    
+    //Jika pil == 3 maka fungsi total() akan terpanggil
+		else if (pil ==3){
+			cout << "Jumlah Data: " << total() << endl;
+			system("pause");
+			system("cls");
+		}
+    
+    //Jika pil != 1/2/3 maka akan keluar
+		else{
+			break;
+		}
+	}
+}
