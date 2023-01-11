@@ -1,7 +1,22 @@
+/* 
+Program ATM sebagai bentuk pengerjaan tugas akhir DDP. Berikut beberapa bagian dari program yang mencakup fitur-fitur:
+1. Login (71 - 96)
+2. Menu Utama (33 - 69)
+3. Informasi Saldo (98 - 114)
+4. Pembayaran (116 - 516)
+5. Top Up (518 - 582)
+6. Transfer (584 -636)
+7. Tarik Tunai (638 - 680)
+8. Setor Tunai (682 - 703)
+9. Struk Setiap Transkasi (705 - 921)
+Yang dibuat menjadi beberapa fungsi, hal ini agar memudahkan dalam membaca dan memahami kode. PIN = 123456
+*/
+
 #include <iostream>
 #include <fstream>
 #include <ctime>
 #include <iomanip>
+#include <conio.h>
 using namespace std;
 
 //Deklarasi variabel global. Hal ini untuk tidak terlalu banyak mendeklarasikan variabel dengan fungsi yang kurang lebih sama
@@ -11,9 +26,9 @@ int uang, admin = 2000;
 long long nomor;
 
 //Pendeklarasian di awal fungsi dikarenakan fungsi di bawah dipanggil oleh fungsi yang ada di atasnya
-void tampil(), ntop_up(string pt, string j_transaksi), MAIN(), npembayaran(string j_beli, int uang), ntarik_tunai(int uang_tarik);
+void tampil(), ntop_up(string pt), npembayaran(string j_beli, int uang), ntarik_tunai(int uang_tarik);
 void konfir_pulsa(int pulsa),konfir_paket(int kouta),konfir_pln(int pln), pembayaran(), top_up(), tarik_tunai(), setor_tunai();
-void nsetor(int uang), transfer1(), info(), ntransfer(string tujuan, int kirim), informasi();
+void nsetor(int uang), transfer1(), info(), ntransfer(string tujuan, int kirim), informasi(), btop_up(), gagal();
 
 //MENU UTAMA
 //Menampilkan menu utama pada layar setelah login
@@ -53,13 +68,41 @@ void utama(){
 	}
 }
 
+//Login
+void login(){
+	for (int i = 1; i <= 3; i++){
+		string pin;
+	   	char ch;
+	   	cout << "MASUKKAN PIN: ";
+	   	ch = getch();
+	   	while(ch != 13){ //character 13 adalah enter
+	    	pin.push_back(ch);
+	      	cout << 'X';
+	      	ch = getch();
+	   }
+	   	if (pin == "123456"){
+	      	utama();
+	   } else{
+		    if (i == 4){
+	      		cout << "\nMelapui Batas Coba!" << endl;
+				system("pause");      	
+			  	exit(0);
+			} else{
+				cout << "\nMasih ada " << 3-i << " Kesempatan" << endl;
+				system("pause");  system("cls");
+			}
+	   }
+	}
+}
+
 //Menu no 1, yaitu Informasi
 void info(){
 	char pil;
 	system ("cls");
-	cout << "------------------------------------------------\n"
-         << "                   CEK SALDO\n"
-         << "------------------------------------------------\n";
+	cout << "\n---------------------------------------------------\n";
+	cout << "                 INFORMASI SALDO					"<<endl;
+	cout << "       UNTUK MEMBATALKAN TRANSAKSI TEKAN '0'"<< endl;
+	cout << "---------------------------------------------------"<<endl; 
     cout << "TOTAL SALDO ANDA SEKARANG Rp. " << saldo << endl;
     cout << "------------------------------------------------\n";
     cout << endl << "Cetak Informasi Saldo? (y/n) "; cin >> pil;
@@ -77,12 +120,14 @@ void kurang(){
 	cout<<"Saldo anda kurang!"<<endl;
 	exit(0);
 }
+
 //Fungsi yg digunakan ketika transaksi berhasil dilakukan, dan akan menampilkan saldo pelanggan
 void berhasil(){
 	system("cls");
 	cout<<"=== Transaksi Berhasil ==="<<endl;
 	cout<<"Sisa saldo anda : "<< saldo <<endl;
 }
+
 //fungsi untuk menampilkan pilihan paket data telepon/hp yg tersedia
 void menu_paket(){
 	int pil;
@@ -133,13 +178,14 @@ void menu_paket(){
 		exit(0);
 	}
 }
+
 //fungsi untuk menampilkan pilihan pulsa telepon/hp yg tersedia
 void menu_pulsa(){
 	int pil;
 	system("cls");
 	cout << "\n---------------------------------------------------\n";
 	cout << "                PEMBAYARAN PULSA					"<<endl;
-	cout << "	   UNTUK MEMBATALKAN TRANSAKSI TEKAN '0'"<< endl;
+	cout << "	 UNTUK MEMBATALKAN TRANSAKSI TEKAN '0'"<< endl;
 	cout << "---------------------------------------------------"<<endl << endl;
 	cout<<"1. 15000	  5. 40000\n";
 	cout<<"2. 20000	  6. 50000\n";
@@ -182,6 +228,7 @@ void menu_pulsa(){
 		exit(0);
 	}
 }
+
 //fungsi untuk menampilkan pilihan Listrik/pln Prabayar yg tersedia
 void menu_PLN(){
 	int pil;
@@ -224,6 +271,7 @@ void menu_PLN(){
 		konfir_pln(uang);
 	}
 }
+
 //Fungsi ini dipanggil ketika pelanggan sudah memilih nominal pulsa yg diinginkan, akan menampilkan nomor, nominal, biaya total tagihan apakah sesuai apa belum
 //Jika sesuai makan transaksi biosa dilanjutkan dengan opsi jika saldo tidak mencukupi maka transaksi auto gagal, namun jika mencukupi program akan mencetak struk transaksi
 //fungsi konfir_blabla() fungsinya hampir sama satu dgn yang lain, hanya bedanya jenis transaksi pembayarannya saja
@@ -252,6 +300,7 @@ void konfir_pulsa(int pulsa){
 		menu_pulsa(); //fungsi dipanggil agar kembali ke menu pilihan pulsa
 	}
 }
+
 //kurang lebih sama dengan fungsi konfir_blabla() sebelumnya, hanya bedanya jenis transaksi pembayarannya saja
 void konfir_paket(int kouta){
 	char lnjt;
@@ -278,6 +327,7 @@ void konfir_paket(int kouta){
 		menu_paket(); //fungsi dipanggil agar kembali ke menu pilihan pulsa
 	}
 }
+
 //kurang lebih sama dengan fungsi konfir_blabla() sebelumnya, hanya bedanya jenis transaksi pembayarannya saja
 void konfir_internet(){
 	char lnjt;
@@ -310,6 +360,7 @@ void konfir_internet(){
 		pembayaran(); //fungsi dipanggil agar kembali ke menu pilihan pembayaran
 	}
 }
+
 //kurang lebih sama dengan fungsi konfir_blabla() sebelumnya, hanya bedanya jenis transaksi pembayarannya saja
 void konfir_tiket(){
 	char lnjt;
@@ -339,6 +390,7 @@ void konfir_tiket(){
 		pembayaran(); //fungsi dipanggil agar kembali ke menu pembayaran
 	}
 }
+
 //kurang lebih sama dengan fungsi konfir_blabla() sebelumnya, hanya bedanya jenis transaksi pembayarannya saja
 void konfir_PDAM(){
 	char lnjt;
@@ -368,6 +420,7 @@ void konfir_PDAM(){
 		pembayaran(); //fungsi dipanggil agar kembali ke menu pilihan pembayaran
 		}
 }
+
 //kurang lebih sama dengan fungsi konfir_blabla() sebelumnya, hanya bedanya jenis transaksi pembayarannya saja
 void konfir_pln(int pln){
 	char lnjt;
@@ -394,6 +447,7 @@ void konfir_pln(int pln){
 		menu_PLN(); //fungsi dipanggil agar kembali ke menu pilihan pulsa
 	}
 }
+
 //Fungsi pembayaran() berisi menu utama dari fitur pembayaran dan kemana program akan berjalan setelah memilih transaksi
 void pembayaran(){
 	int pilih;
@@ -462,14 +516,12 @@ do{
 }
 
 //Menu nomor 3, yaitu menu top up
-void btop_up(), gagal();
-
 //Fungsi untuk memasukkan nomor top up dan nominalnya
-void input_top_up(string jenis, string j_top){
+void input_top_up(string jenis){
 	cout << "Masukkan No. Handphone     : "; cin >> nomor; 
-	cout << "Masukkan Nominal Isi Saldo:"  ; cin >> uang;
+	cout << "Masukkan Nominal Isi Saldo : "  ; cin >> uang;
 	if(uang < saldo){ 
-		ntop_up(jenis, j_top);
+		ntop_up(jenis);
 		system("cls");
 		tampil();
 		exit(0);
@@ -484,7 +536,6 @@ void input_top_up(string jenis, string j_top){
 //Menampilkan menu top up dan pilihan transaksi yg bisa dipilih
 void top_up(){
 	int pilih;
-	string j_beli = "TOP UP";
 	while(true){
 		system("cls");
 		cout << "\n---------------------------------------------------\n";
@@ -502,23 +553,23 @@ void top_up(){
 			//pilih = 1-5, akan memanggil input_top_up()
 			case 1 : 
 				usaha = "Gopay"; 
-				input_top_up(usaha, j_beli);
+				input_top_up(usaha);
 				break;
 			case 2 :
 				usaha = "ShopeePay";
-				input_top_up(usaha, j_beli);
+				input_top_up(usaha);
 				break;
 			case 3 :
 				usaha = "Dana";
-				input_top_up(usaha, j_beli);
+				input_top_up(usaha);
 				break;
 			case 4 :
 				usaha = "OVO";
-				input_top_up(usaha, j_beli);
+				input_top_up(usaha);
 				break;
 			case 5 :
 				usaha = "LinkAja";
-				input_top_up(usaha, j_beli);
+				input_top_up(usaha);
 				break;
 			//pilih = 6 maka akan kembali ke menu utama
 			case 6 :
@@ -571,6 +622,7 @@ void transfer1(){
 		}
 	}
 }
+
 //menu nomor 5, yaitu TARIK TUNAI
 //Fungsi ketika sudah memilih nominal penarikan
 void tarik(int tarik_uang){
@@ -587,9 +639,10 @@ void tarik(int tarik_uang){
 void tarik_tunai(){
 	system("cls");
 	int pil;
-	cout << "--------------------------------------------------\n"
-     << "                    TARIK TUNAI\n"
-     << "--------------------------------------------------\n"
+	cout << "\n---------------------------------------------------\n";
+	cout << "                   TARIK TUNAI					"<<endl;
+	cout << "       UNTUK MEMBATALKAN TRANSAKSI TEKAN '0'"<< endl;
+	cout << "---------------------------------------------------\n" 
      << "1. 100000				4.750000"<<endl
      << "2. 250000				5.1000000"<<endl
      << "3. 500000				6.PENARIKAN JUMLAH LAIN"<<endl;
@@ -655,6 +708,7 @@ void time(){
 	time_t waktu = time(0); //mengisi variabel waktu dengan pehitungan berapa hari 
 	cout << asctime(localtime(&waktu)); //output dari perhitungan berapa lama yg sudah dilewati menjadi waktu real time
 }
+
 //menampilkan struk ke layar
 void tampil(){
 	system("cls");
@@ -742,11 +796,12 @@ void informasi(){
 }
 
 //Membuat struk untuk transaski top up
-void ntop_up(string pt, string j_transaksi){
+void ntop_up(string pt){
 	ofstream add("struk.txt");
 	
 	int ref = 38720, total = uang + admin;
 	saldo -= total;
+	string j_transaksi = "TOP UP";
 	
 	add << setw(22) << "BANK DDP" << endl;
 	add << "-------------------------------------" << endl << endl;
@@ -867,5 +922,5 @@ void nsetor(int uang){
 
 //Fungsi  utama yang mana program berjalan
 int main(){
-	utama();
+	login();
 }
