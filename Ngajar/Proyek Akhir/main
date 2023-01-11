@@ -6,9 +6,9 @@ Program ATM sebagai bentuk pengerjaan tugas akhir DDP. Berikut beberapa bagian d
 4. Pembayaran (116 - 516)
 5. Top Up (518 - 582)
 6. Transfer (584 -636)
-7. Tarik Tunai (638 - 680)
-8. Setor Tunai (682 - 703)
-9. Struk Setiap Transkasi (705 - 921)
+7. Tarik Tunai (638 - 682)
+8. Setor Tunai (684 - 706)
+9. Struk Setiap Transkasi (708 - 924)
 Yang dibuat menjadi beberapa fungsi, hal ini agar memudahkan dalam membaca dan memahami kode. PIN = 123456
 */
 
@@ -495,7 +495,7 @@ do{
 		}
 		case 5:{ //ketika menginput 5 maka akan ke fungsi konfir_PLN()
 			system("CLS");
-			cout<< setw (15) << "Masukan ID\n" << "Pelanggan/No Meter" << endl << endl; 
+			cout<< "Masukan ID Pelanggan/No Meter: " << endl << endl; 
 			cout << "   "; cin >> nomor;
 			menu_PLN();
 			break;
@@ -596,7 +596,7 @@ void transfer1(){
 	if (rek == "0"){
 		utama();
 	} else{
-		cout << "MASUKKAN NOMINAL UANG : "; cin >> transfer;
+		cout << "MASUKKAN NOMINAL UANG          : "; cin >> transfer;
 		
 		system ("cls");
 		
@@ -668,8 +668,10 @@ void tarik_tunai(){
 	    saldo -= uang;
 	    tarik(uang);
 	} else if(pil == 6){
+		system("cls");
 	    cout << "Masukkan Nominal: "; cin >> uang;
 	    if (uang >= 1500000){
+	    	system("cls");
 	    	cout << "Maksimal Penarikan adalah Rp. 1500000";
 	    	tarik_tunai();
 		} else{
@@ -684,9 +686,10 @@ void setor_tunai(){
 	system ("cls");
 	int setor;
     setor :
-    cout << "\n------------------------------------------------\n"
-         << "                 SETOR TUNAI\n"
-         << "--------------------------------------------------\n";
+    cout << "\n---------------------------------------------------\n";
+	cout << "                    SETOR TUNAI					"<<endl;
+	cout << "       UNTUK MEMBATALKAN TRANSAKSI TEKAN '0'"<< endl;
+	cout << "---------------------------------------------------"<<endl; 
     cout << "SILAHKAN MASUKKAN UANG YANG INGIN ANDA TABUNG Rp. " ; cin >> setor;
     if (setor%100000!=0 || setor<0){
     	system("cls");
