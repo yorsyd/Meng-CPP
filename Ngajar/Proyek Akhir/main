@@ -237,7 +237,7 @@ void menu_PLN(){
 	cout << "                 PEMBAYARAN PLN					"<<endl;
 	cout << "	   UNTUK MEMBATALKAN TRANSAKSI TEKAN '0'"<< endl;
 	cout << "---------------------------------------------------"<<endl << endl; 
-	cout<<"Pilih nominal \n";
+	
 	cout<<"1. 20000 	 5. 500000\n";
 	cout<<"2. 50000 	 6. 1 juta\n";
 	cout<<"3. 100000	 7. 5 juta\n";
@@ -495,8 +495,8 @@ do{
 		}
 		case 5:{ //ketika menginput 5 maka akan ke fungsi konfir_PLN()
 			system("CLS");
-			cout<< "Masukan ID Pelanggan/No Meter: " << endl << endl; 
-			cout << "   "; cin >> nomor;
+			cout<< "Masukan ID Pelanggan/No Meter: "; 
+			cin >> nomor;
 			menu_PLN();
 			break;
 		}
@@ -690,7 +690,7 @@ void setor_tunai(){
 	cout << "                    SETOR TUNAI					"<<endl;
 	cout << "       UNTUK MEMBATALKAN TRANSAKSI TEKAN '0'"<< endl;
 	cout << "---------------------------------------------------"<<endl; 
-    cout << "SILAHKAN MASUKKAN UANG YANG INGIN ANDA TABUNG Rp. " ; cin >> setor;
+    cout << "SILAHKAN MASUKKAN UANG YANG INGIN ANDA TABUNG Rp. " ; cin >> setor; 
     if (setor%100000!=0 || setor<0){
     	system("cls");
         cout << "MASUKKAN UANG TOTAL PECAHAN 100000\n";
